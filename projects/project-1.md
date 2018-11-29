@@ -13,7 +13,7 @@ summary: In this we were given to enhance the response section of the AI.
 ---
 
 <div class="ui small rounded images">
-  <img class="ui image" src="../images/susi.png">
+  <img class="ui image" src="../images/susi.jpg">
 </div>
 
 SUSI.AI server backend - the Artificial Intelligence server for personal assistants https://api.susi.ai - fossasia/susi_server.
