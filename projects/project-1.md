@@ -1,6 +1,7 @@
 ---
 layout: project
 type: project
+published: true
 image: images/susi.jpg
 title: SUSI.AI
 permalink: projects/SUSI.AI
