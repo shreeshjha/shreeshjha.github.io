@@ -1,7 +1,7 @@
 ---
 layout: project
 type: project
-image: images/download.jpg
+image: images/susi.jpg
 title: SUSI.AI
 permalink: projects/SUSI.AI
 # All dates must be YYYY-MM-DD format!
