@@ -1,0 +1,29 @@
+title: Shreesh Kumar Jha
+logo: /assets/img/logo.png
+email: shreeshkumar2@gmail.com
+description: Rising Junior at MAIT, Delhi.
+favicon: true
+remote_theme: shreeshkjha/jekyll-theme-minimalistic
+color-scheme: auto
+
+google_analytics: G-0RXV630V8X
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jemoji
+  - jekyll-remote-theme
+
+platforms:
+  - name: Résumé
+    icon: <i class="fa-solid fa-file-lines"></i>
+    link: ./assets/files/Shreesh_Jha.pdf
+  - name: GitHub
+    icon: <i class="fa-brands fa-github"></i>
+    link: https://github.com/shreeshjha
+  - name: LinkedIn
+    icon: <i class="fa-brands fa-linkedin"></i>
+    link: https://www.linkedin.com/in/shreeshjha/
+  - name: Projects
+    icon: <i class="fa-solid fa-file-code"></i>
+    link: ./projects
