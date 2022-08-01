@@ -3,7 +3,7 @@ logo: /assets/img/logo.png
 email: shreeshkumar2@gmail.com
 description: Rising Junior at MAIT, Delhi.
 favicon: true
-remote_theme: shreeshkjha/jekyll-theme-minimalistic
+remote_theme: vaibhavvikas/jekyll-theme-minimalistic
 color-scheme: auto
 
 google_analytics: G-0RXV630V8X

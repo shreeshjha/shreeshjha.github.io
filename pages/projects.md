@@ -37,9 +37,9 @@ Pandas.</li>
     <li> Placed in Top 3(out of 50+ teams) Best
 Projects.</li>
     <li>Developed a software that identifies whether
-or not people are wearing masks and maintaining social distance in Python, OpenCV,
+or not people are wearing masks and maintaining social distance in Python, OpenCV,
 Tensorflow, and Keras.</li>
-    <li>Designed a web page to show (live cases, origin via map, and current pandemic headlines)
+    <li>Designed a web page to show (live cases, origin via map, and current pandemic headlines)
 in JavaScript, HTML, CSS and Mapbox.
 </li>
   </ul>
