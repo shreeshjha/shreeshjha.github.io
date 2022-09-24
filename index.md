@@ -4,9 +4,9 @@ layout: default
 ## About Me:
 
 I am **Shreesh Kumar Jha**, a software dev from **Maharaja Agrasen Institute of Technology, Delhi, India**. I have a great experience in C, C++, Python.
-I'm a **QIntern** at **Quantum World** (Remote) right now, where I'm investigating various resources for quantum computing and creating a path for newcomers to quantum computing.
+As a **QIntern**, I worked with **QMap**, a project that is a part of the QWorld Association. My objective was to gather academic resources, review research articles on quantum computing, and classify them according to their difficulty for the **QMap** website, which is published as a subdomain of QWorld. I also developed a beginner's guide quantum computing learning route for **QMap** and worked on building new webpage for QMap.
 
-I became quite interested in quantum computing, so I implemented many quantum algorithms. I also like compilers and interpreters, so I developed an interpreter that is similar to Pascal's interpreter. 
+I am inclined towards **compilers** and **programming language research**, such as understanding code-generations and different stages of compilers. In the realm of quantum computing, I am intrigued by how qubits are utilized to perform multiple calculations simultaneously. One of the exciting concepts I enjoyed reading about is the transmission of cryptic information with quantum computers, which immediately detects unwanted message intercepts. 
 
 ---
 
@@ -38,11 +38,11 @@ CGPA: 9.48/10.0
 <p style="margin:0;"><b>Quantum Research Intern</b><br>
 July 2021 - Present</p>
 <ul style="margin-left: -1.4em;">
-  <li>Working on compiling academic resources and reading materials available on quantum computing and classify them as per
+  <li>Created and analysed academic resources and reading materials available on quantum computing and classify them as per
 their complexity for QMap.</li>
-  <li>Creating quantum computing learning path for the QMap
-website, that is published as a subdomain of QWorld.</li>
-  <li>Reviewing research papers on the efforts to promote / improve quantum computing community</li>
+  <li>Created quantum computing learning path for the QMap website, which is published as a subdomain of QWorld.</li>
+  <li>Reviewed research papers on the efforts to promote / improve
+quantum computing community and summarized it for beginners quantum computing path</li>
 </ul>
   
 <h3 style="margin-bottom:2px;">Google Code-in 2018</h3>
@@ -93,6 +93,7 @@ Pandas.</li>
 
 <h4 style="margin-bottom:5px;">Academic Achievements:</h4>
 <ul style="margin-left: -1.4em;">
+  <li>QMap Project won 3rd Prize (out of 20 teams) and For Presentation got 2nd Prize</li>
   <li>2nd-Runner Up in IncubaitIND Mait Hackathon (4 Rounds -
 100+ participants)</li>
   <li>• From 5% (100000+ participants) accepted participant to compete in Codechef Snackdown (2021) Semi-Final</li>
