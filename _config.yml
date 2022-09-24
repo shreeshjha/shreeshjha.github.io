@@ -18,6 +18,9 @@ platforms:
   - name: Résumé
     icon: <i class="fa-solid fa-file-lines"></i>
     link: ./assets/files/Shreesh_Jha.pdf
+  - name: Academic Transcripts
+    icon: <i class="fa-solid fa-file-lines"></i>
+    link: ./assets/files/Academic_Transcript.pdf
   - name: GitHub
     icon: <i class="fa-brands fa-github"></i>
     link: https://github.com/shreeshjha

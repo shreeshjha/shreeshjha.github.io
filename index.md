@@ -36,7 +36,7 @@ CGPA: 9.48/10.0
 
 <h3 style="margin-bottom:2px;">QWorld Association</h3>
 <p style="margin:0;"><b>Quantum Research Intern</b><br>
-July 2021 - Present</p>
+June 2022 - August 2022</p>
 <ul style="margin-left: -1.4em;">
   <li>Created and analysed academic resources and reading materials available on quantum computing and classify them as per
 their complexity for QMap.</li>
