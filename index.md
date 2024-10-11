@@ -3,7 +3,9 @@ layout: default
 ---
 ## About Me:
 
-I am **Shreesh Kumar Jha**, a software dev from **Maharaja Agrasen Institute of Technology, Delhi, India**. I have a great experience in C, C++, Python.
+I am **Shreesh Kumar Jha**, a software dev from **Politecnico di Milano**. I have a great experience in C/C++, Rust, Java, Python.
+
+As a **Visiting Research Intern** at **King's College London** under **Dr. Stephen Kell** ....
 As a **QIntern**, I worked with **QMap**, a project that is a part of the QWorld Association. My objective was to gather academic resources, review research articles on quantum computing, and classify them according to their difficulty for the **QMap** website, which is published as a subdomain of QWorld. I also developed a beginner's guide quantum computing learning route for **QMap** and worked on building new webpage for QMap.
 
 I am inclined towards **compilers** and **programming language research**, such as understanding code-generations and different stages of compilers. In the realm of quantum computing, I am intrigued by how qubits are utilized to perform multiple calculations simultaneously. One of the exciting concepts I enjoyed reading about is the transmission of cryptic information with quantum computers, which immediately detects unwanted message intercepts. 
@@ -14,8 +16,8 @@ I am inclined towards **compilers** and **programming language research**, such 
 
 <h3 style="margin-bottom:2px;">Bachelor of Technology, Information Technology</h3>
 <h4 style="margin:0;">Maharaja Agrasen Institute of Technology, Delhi, India</h4>
-December 2020 - May 2024 (Expected)\
-CGPA: 9.48/10.0
+December 2020 - July 2024 \
+CGPA: 9.38/10.0
 
 ---
 
