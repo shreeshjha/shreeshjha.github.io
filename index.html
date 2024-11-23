@@ -21,155 +21,176 @@
 </head>
 <body>
     <div class="content-wrapper">
-        <nav>
-            <a href="#" class="name">Shreesh Kumar Jha</a>
-            <a href="#research">Research</a>
-            <a href="#projects">Projects</a>
-            <a href="#about">About</a>
-        </nav>
+        <header>
+            <nav class="nav-links">
+                <a href="#" class="nav-link name">
+                    <span class="status-indicator"></span>
+                    Shreesh Kumar Jha
+                </a>
+                <a href="#research" class="nav-link">Research</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#about" class="nav-link">About</a>
+            </nav>
+        </header>
 
         <main>
-            <section id="intro">
-                <div class="ascii-decoration ascii-top-right">
-                    struct kernel_state {
-                        page_table *pt;
-                        void *heap;
-                        bool initialized;
-                    };
-              </div>
-                <div class="intro-container">
-                    <img 
-                        src="./assests/images/profile.jpeg" 
-                        alt="Shreesh Kumar Jha" 
-                        class="profile-image"
-                        loading="lazy"
-                    >
-                    <div>
-                        <p>
-                            Hi! I'm a Systems Engineer and MSc student at Politecnico di Milano, specializing in 
-                            low-level systems development, OS kernels, and distributed systems. Previously, I was a 
-                            Visiting Research Student at King's College London, working on C++ optimization and runtime safety.
-                        </p>
-                        <div class="tech-tags">
-                            <span class="tag">C/C++</span>
-                            <span class="tag">Rust</span>
-                            <span class="tag">Systems Programming</span>
-                            <span class="tag">OS Development</span>
-                            <span class="tag">Quantum Computing</span>
-                        </div>
-                        <div class="contact-links">
-                            <a href="mailto:shreeshkumar.jha@mail.polimi.it" class="contact-link">
-                                <span>Email</span>
-                            </a>
-                            <a href="https://github.com/shreeshjha" class="contact-link">
-                                <span>GitHub</span>
-                            </a>
-                            <a href="https://linkedin.com/in/shreeshjha" class="contact-link">
-                                <span>LinkedIn</span>
-                            </a>
-                        </div>
+            <section id="intro" class="profile-section">
+                <div class="code-decoration code-top-right">
+                    struct SysEngineer {
+                        skills: Vec<String>,
+                        experience: Years,
+                        passion: Infinite,
+                    }
+                </div>
+                <img 
+                    src="./assets/images/profile.jpeg" 
+                    alt="Shreesh Kumar Jha" 
+                    class="profile-image"
+                    loading="lazy"
+                >
+                <div class="profile-content">
+                    <p class="description">
+                        Hi! I'm a Systems Engineer and MSc student at Politecnico di Milano, specializing in 
+                        low-level systems development, OS kernels, and distributed systems. Previously, I was a 
+                        Visiting Research Student at King's College London, working on C++ optimization and runtime safety.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">C/C++</span>
+                        <span class="tech-tag">Rust</span>
+                        <span class="tech-tag">Systems Programming</span>
+                        <span class="tech-tag">OS Development</span>
+                        <span class="tech-tag">Quantum Computing</span>
+                    </div>
+                    <div class="contact-links">
+                        <a href="mailto:shreeshkumar.jha@mail.polimi.it" class="contact-link">
+                            <span class="status-indicator"></span>Email
+                        </a>
+                        <a href="https://github.com/shreeshjha" class="contact-link">GitHub</a>
+                        <a href="https://linkedin.com/in/shreeshjha" class="contact-link">LinkedIn</a>
                     </div>
                 </div>
             </section>
 
             <section id="research">
-                <h2>Research</h2>
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>King's College London</h3>
-                        <span class="project-date">July 2023 - Oct 2023</span>
+                <h2 class="section-title">
+                    <span class="code-decoration">
+                        // Research Implementation
+                        #[derive(Debug)]
+                    </span>
+                    Research
+                </h2>
+                
+                <div class="research-card" data-addr="0xR001">
+                    <div class="title-row">
+                        <h3 class="project-title">King's College London</h3>
+                        <span class="date">July 2023 - Oct 2023</span>
                     </div>
-                    <p>
+                    <p class="description">
                         Collaborated with Dr. Stephen Kell on optimizing C++ operator usage patterns and implementing
                         dynamic checking mechanisms for runtime safety. Developed Clang-based tools for source code
                         instrumentation and analysis.
                     </p>
                     <div class="tech-tags">
-                        <span class="tag">C++</span>
-                        <span class="tag">LLVM/Clang</span>
-                        <span class="tag">Static Analysis</span>
+                        <span class="tech-tag">C++</span>
+                        <span class="tech-tag">LLVM/Clang</span>
+                        <span class="tech-tag">Static Analysis</span>
                     </div>
                 </div>
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>QWorld Association</h3>
-                        <span class="project-date">Jun 2022 - Aug 2022</span>
+
+                <div class="research-card" data-addr="0xR002">
+                    <div class="title-row">
+                        <h3 class="project-title">QWorld Association</h3>
+                        <span class="date">Jun 2022 - Aug 2022</span>
                     </div>
-                    <p>
+                    <p class="description">
                         Researched and developed quantum computing learning resources for QMap, creating structured
                         learning paths and analyzing academic materials. Contributed to making quantum computing
                         more accessible to beginners.
                     </p>
                     <div class="tech-tags">
-                        <span class="tag">Quantum Computing</span>
-                        <span class="tag">Qiskit</span>
-                        <span class="tag">Technical Writing</span>
+                        <span class="tech-tag">Quantum Computing</span>
+                        <span class="tech-tag">Qiskit</span>
+                        <span class="tech-tag">Technical Writing</span>
                     </div>
                 </div>
             </section>
 
             <section id="projects">
-                <h2>Projects</h2>
-                <div class="project-card">
-                    <div class="project-header">
-                     <h3>BareBones-OS</h3>
-                        <span class="project-date">May 2024</span>
+                <h2 class="section-title">
+                    <span class="code-decoration">
+                        /* Abstract Syntax Tree */
+                        node: Projects {
+                            type: Section,
+                            children: [...]
+                        }
+                    </span>
+                    Projects
+                </h2>
+                
+                <div class="project-card" data-addr="0xP001">
+                    <div class="title-row">
+                        <h3 class="project-title">BareBones-OS</h3>
+                        <span class="date">May 2024</span>
                     </div>
-                    <p>
+                    <p class="description">
                         A lightweight Rust kernel (391 KB) with advanced memory management features and comprehensive
                         interrupt handling. Achieved 87% faster boot time than FreeDOS and implemented efficient
                         paging, dynamic allocation, and custom heap allocation.
                     </p>
                     <div class="tech-tags">
-                        <span class="tag">Rust</span>
-                        <span class="tag">OS Development</span>
-                        <span class="tag">Memory Management</span>
+                        <span class="tech-tag">Rust</span>
+                        <span class="tech-tag">OS Development</span>
+                        <span class="tech-tag">Memory Management</span>
                     </div>
                 </div>
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Dump-Wizard</h3>
-                        <span class="project-date">Feb 2023</span>
+
+                <div class="project-card" data-addr="0xP002">
+                    <div class="title-row">
+                        <h3 class="project-title">Dump-Wizard</h3>
+                        <span class="date">Feb 2023</span>
                     </div>
-                    <p>
+                    <p class="description">
                         Cross-platform memory analysis toolkit built in C++. Features efficient process capture using
                         Windows API and comprehensive memory dump visualization capabilities for detailed analysis.
                     </p>
                     <div class="tech-tags">
-                        <span class="tag">C++</span>
-                        <span class="tag">Windows API</span>
-                        <span class="tag">Memory Analysis</span>
+                        <span class="tech-tag">C++</span>
+                        <span class="tech-tag">Windows API</span>
+                        <span class="tech-tag">Memory Analysis</span>
                     </div>
                 </div>
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Titan-Interpreter</h3>
-                        <span class="project-date">Dec 2021</span>
+
+                <div class="project-card" data-addr="0xP003">
+                    <div class="title-row">
+                        <h3 class="project-title">Titan-Interpreter</h3>
+                        <span class="date">Dec 2021</span>
                     </div>
-                    <p>
+                    <p class="description">
                         Pascal-based interpreter for x86-64 architecture implemented in Python. Features an AST-based
                         design capable of evaluating complex arithmetic expressions with unary operators.
                     </p>
                     <div class="tech-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">Interpreters</span>
-                        <span class="tag">x86-64</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Interpreters</span>
+                        <span class="tech-tag">x86-64</span>
                     </div>
                 </div>
             </section>
 
             <section id="about">
-                <h2>About</h2>
-                <p>
-                    I'm currently pursuing my MSc in Computer Science and Engineering at Politecnico di Milano,
-                    focusing on advanced computer architectures and distributed systems. Previously, I completed
-                    my BTech in Information Technology from MAIT with a 9.38 GPA, ranking 3rd in the department.
-                </p>
-                <p>
-                    Beyond academics, I'm an active participant in the coding community, achieved a global rank
-                    of 1,671 on CodeChef, and won multiple hackathons including SIH MAIT for the quantum-computing-based
-                    email system "GroveMail".
-                </p>
+                <h2 class="section-title">About</h2>
+                <div class="project-card" data-addr="0xA001">
+                    <p class="description">
+                        I'm currently pursuing my MSc in Computer Science and Engineering at Politecnico di Milano,
+                        focusing on advanced computer architectures and distributed systems. Previously, I completed
+                        my BTech in Information Technology from MAIT with a 9.38 GPA, ranking 3rd in the department.
+                    </p>
+                    <p class="description">
+                        Beyond academics, I'm an active participant in the coding community, achieved a global rank
+                        of 1,671 on CodeChef, and won multiple hackathons including SIH MAIT for the quantum-computing-based
+                        email system "GroveMail".
+                    </p>
+                </div>
             </section>
         </main>
     </div>
