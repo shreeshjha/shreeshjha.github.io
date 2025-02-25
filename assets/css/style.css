@@ -460,3 +460,149 @@ body::before {
         display: none;
     }
 }
+
+/*****************************************************
+  Blog Page Specific Styles
+*****************************************************/
+.blog-body {
+    position: relative;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+    
+    /* 
+       Create a layered background:
+       1. Base dark gradient.
+       2. Repeating diagonal lines (mimicking digital traces).
+       3. A second, finer repeating pattern for texture.
+       
+       The blend mode ensures the layers mix in an interesting way.
+    */
+    background: 
+      /* Base gradient: dark blue-to-black */
+      linear-gradient(135deg, #0A0E12, #102A43),
+      /* Diagonal grid overlay */
+      repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.05) 0px, rgba(255, 255, 255, 0.05) 1px, transparent 1px, transparent 10px),
+      /* Finer grid overlay for additional texture */
+      repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0px, rgba(255, 255, 255, 0.03) 1px, transparent 1px, transparent 10px);
+    
+    background-blend-mode: overlay;
+  }
+  
+  /* 
+     1) Fullscreen assembly code image (or any interesting low-level background).
+     2) Adjust opacity as needed.
+  */
+  .blog-body::before {
+    content: "";
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    background: url('../images/assembly-bg.jpg') center center / cover no-repeat;
+    opacity: 0.25;  /* tweak for more or less visibility */
+    pointer-events: none;  /* so clicks pass through */
+    z-index: -1;
+  }
+  
+  /* 
+     2) Semi-transparent gradient overlay
+     - Helps text stand out.
+  */
+  .blog-body::after {
+    content: "";
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    background: linear-gradient(
+      135deg,
+      rgba(0,0,0,0.8),
+      rgba(10,10,10,0.7)
+    );
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  /* Center the blog content and keep it from spanning the entire width */
+  .blog-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  
+  /* Blog post card styling:
+     - Translucent background so the underlying image is hinted behind.
+  */
+  .blog-post {
+    background: rgba(20, 24, 29, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  }
+  
+  /* Title row style in each blog post */
+  .blog-post .title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+  
+  /* Blog post title style with a bright accent color */
+  .blog-title {
+    color: #66FCF1; /* Teal accent, adjust to your liking */
+    font-size: 1.3rem;
+    margin: 0;
+  }
+  
+  /* Blog date style */
+  .blog-post .date {
+    color: #9ea2a8;
+    font-size: 0.9rem;
+  }
+  
+  /* Description text */
+  .blog-post .description {
+    color: #cfd2d6;
+    margin: 0.75rem 0;
+    line-height: 1.6;
+  }
+  
+  /* Tech tags in the blog post */
+  .blog-post .tech-tags {
+    margin-top: 0.5rem;
+  }
+  .blog-post .tech-tag {
+    display: inline-block;
+    background: #2a2f3c;
+    color: #cfd2d6;
+    padding: 0.3rem 0.6rem;
+    margin-right: 0.4rem;
+    margin-bottom: 0.4rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+  }
+  
+  /*****************************************************
+    Navigation & Header (reuse or adapt from main style)
+  *****************************************************/
+  .nav-links {
+    display: flex;
+    gap: 1rem;
+    background: rgba(0,0,0,0.3);
+    padding: 1rem;
+  }
+  
+  .nav-link.active {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  
