@@ -16,10 +16,17 @@
   <style>
     /* Ensure embedded diagrams fit nicely within the content */
     .blog-image {
-      width: 100%;
+      width: auto;
+      max-width: 100%;
       height: auto;
       display: block;
       margin: 1em auto;
+    }
+    /* Allow full image display without clipping */
+    .content-wrapper,
+    .post-content,
+    .hidden-content {
+      overflow: visible;
     }
   </style>
 </head>
