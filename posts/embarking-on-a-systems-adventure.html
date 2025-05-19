@@ -16,13 +16,13 @@
   <style>
     /* Ensure embedded diagrams fit nicely within the content */
     .blog-image {
-      width: auto;
       max-width: 100%;
       height: auto;
       display: block;
       margin: 1em auto;
+      clear: both;
     }
-    /* Allow full image display without clipping */
+    /* Remove forced overflow so parent containers expand to child images */
     .content-wrapper,
     .post-content,
     .hidden-content {
