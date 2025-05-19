@@ -4,36 +4,156 @@
   <meta charset="UTF-8">
   <title>Embarking on a Systems Adventure</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="../assets/images/android-chrome-192x192.png">
-
-  <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="../assets/css/style.css">
-  
-  <!-- Blog-specific styles -->
-  <link rel="stylesheet" href="../assets/css/blog-post.css">
   <style>
-    /* Ensure embedded diagrams fit nicely within the content */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    header {
+      margin-bottom: 30px;
+    }
+    nav.nav-links {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
+    .nav-link {
+      color: #0066cc;
+      text-decoration: none;
+      margin-right: 15px;
+    }
+    .nav-link:hover {
+      text-decoration: underline;
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+    h2 {
+      font-size: 1.5em;
+      margin-top: 30px;
+    }
+    h4 {
+      font-size: 1.3em;
+      margin-top: 25px;
+      color: #333;
+    }
+    .content-wrapper {
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
     .blog-image {
       max-width: 100%;
       height: auto;
       display: block;
-      margin: 1em auto;
-      position: relative;
-      z-index: 1;
-      clear: both;
+      margin: 1.5em auto;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
-    /* Force overflow visible on containers */
-    body,
-    .content-wrapper,
-    .post-content,
-    .hidden-content,
-    header,
-    nav,
-    article,
+    .meta-info {
+      font-size: 0.9em;
+      color: #666;
+      margin-bottom: 20px;
+    }
+    .table-of-contents {
+      background-color: #f5f5f5;
+      padding: 20px;
+      border-radius: 5px;
+      margin-bottom: 30px;
+    }
+    .table-of-contents ul {
+      list-style-type: none;
+      padding-left: 10px;
+    }
+    .table-of-contents li {
+      margin-bottom: 8px;
+    }
+    .table-of-contents a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+    .table-of-contents a:hover {
+      text-decoration: underline;
+    }
+    .hidden-content {
+      display: none;
+      padding: 15px;
+      background-color: #f7f9fc;
+      border-left: 3px solid #0066cc;
+      margin: 15px 0;
+      border-radius: 3px;
+    }
+    .hidden-content.revealed {
+      display: block;
+    }
+    .reveal-button {
+      background-color: #0066cc;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+    .reveal-button:hover {
+      background-color: #004c99;
+    }
+    .wand {
+      margin-right: 5px;
+    }
     section {
-      overflow: visible !important;
+      margin-bottom: 40px;
+    }
+    .share-section, .newsletter-signup {
+      margin-top: 40px;
+      padding: 20px;
+      background-color: #f5f5f5;
+      border-radius: 5px;
+    }
+    .share-btn {
+      display: inline-block;
+      margin-right: 10px;
+      padding: 8px 15px;
+      background-color: #0066cc;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    .share-btn:hover {
+      background-color: #004c99;
+    }
+    form input[type="email"] {
+      padding: 8px;
+      width: 250px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    form button {
+      padding: 8px 15px;
+      background-color: #0066cc;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .comments {
+      margin-top: 40px;
+    }
+    code {
+      background-color: #f0f0f0;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-family: monospace;
     }
   </style>
 </head>
@@ -78,7 +198,7 @@
       <!-- Meta Info: Date & Reading Time -->
       <div class="meta-info">
         <span class="date">Feb 2025</span>
-        <span id="reading-time"></span>
+        <span id="reading-time">• 5 min read</span>
       </div>
       <hr>
 
@@ -104,14 +224,25 @@
             <p>By simulating both L1 and L2 caches, we can explore how data flows through different levels and what happens when it's time to "flush" or update this data.</p>
             <p><strong>Eviction</strong> is like a chef cleaning up: when your countertop (L1) is full, you must move or discard some spices to make room for new ones.</p>
             <p><strong>Flushing</strong> is like restocking your cabinet (L2) with fresh supplies at the end of service.</p>
-            <img src="../assets/images/cache-hierarchy-diagram.png" alt="Diagram of cache hierarchy showing CPU, L1, L2, main memory" class="blog-image" style="max-width:100%;height:auto;">
+            
+            <!-- Fixed image display -->
+            <div style="text-align:center;margin:20px 0;">
+              <img src="https://via.placeholder.com/600x400" alt="Diagram of cache hierarchy showing CPU, L1, L2, main memory" class="blog-image">
+              <p><em>Cache hierarchy diagram showing data flow between CPU, L1, L2, and main memory</em></p>
+            </div>
+            
             <p><em>Pro tip (thanks to Stefan):</em> Main memory itself can also act as another cache layer for the OS's VM or file system—think of it as the pantry beyond your cabinets. When your cabinets run dry or miss an item, the system will grab from this faster, in-house pantry (RAM) instead of waiting for slower disk accesses.</p>
-            <img src="../assets/images/main-memory-cache-layer.png" alt="Diagram showing main memory as cache layer for OS VM and file system" class="blog-image" style="max-width:100%;height:auto;">
+            
+            <!-- Fixed image display -->
+            <div style="text-align:center;margin:20px 0;">
+              <img src="https://via.placeholder.com/600x300" alt="Diagram showing main memory as cache layer for OS VM and file system" class="blog-image">
+              <p><em>Diagram showing main memory serving as a cache layer for OS and file system</em></p>
+            </div>
           </div>
         </section>
 
         <section id="split-l1">
-          <h4>##2 Beyond the Basics: Splitting the L1 Cache</h4>
+          <h4>#2 Beyond the Basics: Splitting the L1 Cache</h4>
           <p>In many high performance processors, the L1 cache isn't a single, monolithic block. Instead, it's often split into two distinct parts:</p>
           <ul>
             <li><strong>L1 Instruction Cache (L1i):</strong> Stores the instructions the CPU needs to execute, ensuring that the processor can quickly fetch and execute commands.</li>
@@ -121,7 +252,7 @@
         </section>
 
         <section id="more-levels">
-          <h4>##3 Taking It Further: More Levels of Cache (More the Merrier! Somewhat)</h4>
+          <h4>#3 Taking It Further: More Levels of Cache (More the Merrier! Somewhat)</h4>
           <p>While our simulator focuses on L1 and L2 caches for simplicity, real-world systems often include additional layers. For example:</p>
           <ul>
             <li><strong>L3 Cache:</strong> Typically larger and shared among multiple cores, the L3 cache serves as a common pool of data that all cores can access. Yes, that makes it slower than L1 and L2 but still much faster than main memory. Think of it as a community pantry (if that's a thing) in a shared apartment everyone can use, though it's not as immediately accessible as your personal pantry.</li>
@@ -130,7 +261,7 @@
         </section>
 
         <section id="multi-core">
-          <h4>#2 Simulating a Multi-Core World</h4>
+          <h4>#4 Simulating a Multi-Core World</h4>
           <p>Now, let's ramp things up a notch and really tighten our sails. Modern processors aren't just one kitchen; they're more like a bustling restaurant with several chefs (or cores) all working in parallel. Each core has its own L1 cache (its own countertop), yet they share a common L2 cache (a shared mini-fridge).</p>
           <p>In our <code>multi_core_simulation.cpp</code> file, each core does its own thing:</p>
           <ul>
@@ -142,7 +273,7 @@
         </section>
 
         <section id="persistence">
-          <h4>#3 Bringing Persistence into the Mix</h4>
+          <h4>#5 Bringing Persistence into the Mix</h4>
           <p>Persistence, in simpler terms, means endurance or the ability to hold on and continue. Just like Hercules conquered the 12 labours, let us conquer the system's volatility. Persistence isn't just for memories and photo albums—it's crucial for systems that need to remember their state even after a crash or reboot.</p>
           <p>Our <code>persistent_data_structure.cpp</code> introduces a "PersistentCounter". In everyday terms, imagine a counter on your doorstep that not only counts the visitors but also writes down the total so it can be recovered later if the power goes out.</p>
           <p>Here's how it works:</p>
@@ -154,7 +285,7 @@
         </section>
 
         <section id="benchmarks">
-          <h4>#4 Real-Life Benchmarks and Simulations</h4>
+          <h4>#6 Real-Life Benchmarks and Simulations</h4>
           <p>Okay, so we discussed a lot about these chefs and what they can do, but it might be hearsay, right? Maybe it's just like when Dionysus boasted about an epic feast, yet all he served was an empty wine barrel! To truly understand performance—and avoid embarrassing ourselves like Dionysus—one must measure it.</p>
           <p>Our project includes various benchmark modes (see <code>benchmark.cpp</code> and <code>extended_benchmark.cpp</code>) that simulate:</p>
           <ul>
@@ -165,7 +296,7 @@
         </section>
 
         <section id="wrapup">
-          <h4>#5 Wrapping Up: Why It Matters</h4>
+          <h4>#7 Wrapping Up: Why It Matters</h4>
           <p>You might be wondering: why go through all this trouble to simulate caches and persistence? We're not Jack Sparrow—we're not setting sail for the world's end. Our aim is to show how modern software systems rely on these techniques to boost performance while ensuring data is never lost.</p>
           <p>By experimenting with our simulator, you can:</p>
           <ul>
@@ -201,42 +332,10 @@
       <section class="comments">
         <h3>Leave a Comment</h3>
         <div id="disqus_thread"></div>
-        <script>
-          var disqus_config = function () {
-            this.page.url = window.location.href;
-            this.page.identifier = document.title;
-          };
-          (function() {
-            var d = document, s = d.createElement('script');
-            s.src = 'https://YOUR_DISQUS_SHORTNAME.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-          })();
-        </script>
-        <noscript>Please enable JavaScript to view the comments.</noscript>
       </section>
 
     </article>
   </main>
-
-  <!-- Script for Estimated Reading Time -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const content = document.getElementById("post-content");
-      if (!content) return;
-
-      // Count words (roughly) by splitting on whitespace
-      const text = content.innerText || content.textContent;
-      const wordCount = text.trim().split(/\s+/).length;
-
-      // Approx. 200 words per minute
-      const readingTime = Math.ceil(wordCount / 200);
-
-      // Display reading time
-      const readingTimeElem = document.getElementById("reading-time");
-      readingTimeElem.textContent = `• ${readingTime} min read`;
-    });
-  </script>
 
   <!-- Script for Content Reveal & Search -->
   <script>
@@ -249,6 +348,7 @@
           revealButton.innerHTML = hiddenContent.classList.contains("revealed") ? '<span class="wand">⚡</span> Colloportus!' : '<span class="wand">⚡</span> Revelio!';
         });
       }
+      
       // Simple search filter
       const searchInput = document.getElementById("post-search");
       if (searchInput) {
