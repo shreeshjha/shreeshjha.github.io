@@ -20,13 +20,20 @@
       height: auto;
       display: block;
       margin: 1em auto;
+      position: relative;
+      z-index: 1;
       clear: both;
     }
-    /* Remove forced overflow so parent containers expand to child images */
+    /* Force overflow visible on containers */
+    body,
     .content-wrapper,
     .post-content,
-    .hidden-content {
-      overflow: visible;
+    .hidden-content,
+    header,
+    nav,
+    article,
+    section {
+      overflow: visible !important;
     }
   </style>
 </head>
