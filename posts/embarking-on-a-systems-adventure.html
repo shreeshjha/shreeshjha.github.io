@@ -5,17 +5,15 @@
   <title>Embarking on a Systems Adventure</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    /* Maintain original blog styling */
+    /* Keep the exact original background */
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
       line-height: 1.6;
-      color: #333;
+      background-color: #1a1f2c;
+      color: #f0f0f0;
       max-width: 800px;
       margin: 0 auto;
       padding: 20px;
-      /* Keep original background */
-      background-color: #1a1f2c;
-      color: #e8e8e8;
     }
     header {
       margin-bottom: 30px;
@@ -35,24 +33,31 @@
     .nav-link:hover {
       text-decoration: underline;
     }
+    /* Heading styles that match the screenshots */
     h1 {
-      font-size: 2em;
-      margin-bottom: 20px;
+      font-size: 2.2em;
+      margin-bottom: 25px;
+      color: #f0f0f0;
+      font-weight: 600;
     }
     h2 {
-      font-size: 1.5em;
-      margin-top: 30px;
+      font-size: 1.8em;
+      margin-top: 35px;
+      color: #f0f0f0;
+      font-weight: 500;
     }
     h4 {
-      font-size: 1.3em;
-      margin-top: 25px;
-      color: #333;
+      font-size: 1.4em;
+      margin-top: 30px;
+      color: #b8ac4e; /* Gold/yellow color for section headings as seen in Image 1 */
+      font-weight: 500;
     }
+    /* Content wrapper with darker background that matches the theme */
     .content-wrapper {
       background-color: #222a3a;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       color: #e8e8e8;
     }
     .blog-image {
@@ -100,17 +105,17 @@
       display: block;
     }
     .reveal-button {
-      background-color: #0066cc;
-      color: white;
+      background-color: #5e9eff;
+      color: #1a1f2c;
       border: none;
-      padding: 8px 15px;
+      padding: 10px 18px;
       border-radius: 4px;
       cursor: pointer;
       font-weight: bold;
-      margin: 10px 0;
+      margin: 15px 0;
     }
     .reveal-button:hover {
-      background-color: #004c99;
+      background-color: #7eaeff;
     }
     .wand {
       margin-right: 5px;
@@ -213,7 +218,7 @@
         </section>
 
         <section id="cache">
-          <h4>#1 The Big Picture: What's a Cache Anyway?</h4>
+          <h4>#1 The Big Picture: What's a Cache?</h4>
           <p>Imagine you are in your kitchen preparing dinner. You wouldn't keep all your ingredients stored in a far-off storage or pantry (if you are fancy) every time you need a spice, right? So where would you keep it? Think 🤔—you know the answer.</p>
           <!-- Reveal button -->
           <button id="reveal-spell" class="reveal-button"><span class="wand">⚡</span> Revelio!</button>
@@ -256,7 +261,7 @@
         </section>
 
         <section id="more-levels">
-          <h4>#3 Taking It Further: More Levels of Cache (More the Merrier! Somewhat)</h4>
+          <h4>#3 Taking It Further: More Levels of Cache</h4>
           <p>While our simulator focuses on L1 and L2 caches for simplicity, real-world systems often include additional layers. For example:</p>
           <ul>
             <li><strong>L3 Cache:</strong> Typically larger and shared among multiple cores, the L3 cache serves as a common pool of data that all cores can access. Yes, that makes it slower than L1 and L2 but still much faster than main memory. Think of it as a community pantry (if that's a thing) in a shared apartment everyone can use, though it's not as immediately accessible as your personal pantry.</li>
