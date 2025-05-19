@@ -26,6 +26,10 @@
       <a href="../index.html#projects" class="nav-link">Projects</a>
       <a href="../index.html#about" class="nav-link">About</a>
       <a href="../blog.html" class="nav-link">Blogs</a>
+      <!-- Optional Search -->
+      <div class="nav-search">
+        <input type="text" id="post-search" placeholder="Search this post..." />
+      </div>
     </nav>
   </header>
 
@@ -33,7 +37,21 @@
   <main class="content-wrapper">
     <article class="blog-post-full">
       <h1>Embarking on a Systems Adventure: Caches, Multi-Core Simulations, and Persistence</h1>
-      
+      <!-- Table of Contents -->
+      <nav class="table-of-contents">
+        <h2>On This Page</h2>
+        <ul>
+          <li><a href="#intro">Introduction</a></li>
+          <li><a href="#cache">1. The Big Picture: What's a Cache?</a></li>
+          <li><a href="#split-l1">2. Splitting the L1 Cache</a></li>
+          <li><a href="#more-levels">3. More Levels of Cache</a></li>
+          <li><a href="#multi-core">4. Simulating a Multi-Core World</a></li>
+          <li><a href="#persistence">5. Bringing Persistence</a></li>
+          <li><a href="#benchmarks">6. Benchmarks & Simulations</a></li>
+          <li><a href="#wrapup">7. Wrapping Up</a></li>
+        </ul>
+      </nav>
+
       <!-- Meta Info: Date & Reading Time -->
       <div class="meta-info">
         <span class="date">Feb 2025</span>
@@ -43,79 +61,138 @@
 
       <!-- Blog Content -->
       <div class="post-content" id="post-content">
-        <p>Hello my fellow tinkerers or should I say Hermes followers ;) Today we'll set our sails into the deep trenches of computer caches, multi-core simulations, and persistent data structures. If you've ever thought about how modern systems juggle speed and data reliability, then you came at the right post. And don't worry—we'll start with the basics, much like learning to ride a bike (with training wheels, of course). And while none of us are Indiana Jones on a quest for hidden relics (or are we 🤨?), we're about to embark on our own little adventure, where we will bridge the gap between theoretical concepts and practical insights in a way that's as thrilling (hopefully) as it is enlightening.</p>
-        
-        <h4>#1 The Big Picture: What's a Cache Anyway ?</h4>
-        <p>Imagine you are in your kitchen preparing dinner. You wouldn't keep all your ingredients stored in a far-off storage or pantry (if you are fancy) every time you need a spice, right? So where would you keep it? Think 🤔—you know the answer.  <!-- Reveal button -->
-            <button id="reveal-spell" class="reveal-button"><span class="wand">⚡</span> Revelio!</button>
-            
-            <!-- Hidden content section -->
-            <div id="hidden-content" class="hidden-content">
-              <p>Yes, you'd keep the most-used items right on the kitchen countertop. In computer architecture, a cache works much the same way; it's a small, fast storage space that keeps data close at hand for the processor (just like a small spice box you'd keep in front of you in the kitchen).</p>
-              
-              <p>In our project (which will be linked down below), we've built a cache simulator that mimics this behavior. We have different "levels" of caches:</p>
-              <ul>
-                <li><strong>L1 Cache:</strong> Imagine it as the countertop, the fastest and closest to the "action".</li>
-                <li><strong>L2 Cache:</strong> This is more like a nearby kitchen cabinet. It is not as immediate as the countertop, but it is much faster than going to your deep, far away cold pantry (they are cold, right? I don't know but you understand my point!).</li>
-              </ul>
-              <p>By simulating both L1 and L2 caches, we can explore how data flows through different levels and what happens when it's time to "flush" or update this data.</p>
-            </div>
-        <h4>Beyond the Basics: Splitting the L1 Cache</h4>
-        <p>In many high performance processors, the L1 cache isn't a single, monolithic block. Instead, it's often split into two distinct parts:</p>
-        <ul>
-          <li><strong>L1 Instruction Cache (L1i):</strong> Stores the instructions the CPU needs to execute, ensuring that the processor can quickly fetch and execute commands.</li>
-          <li><strong>L1 Data Cache (L1d):</strong> Holds the actual data that the processor operates on, keeping frequently used data readily accessible.</li>
-        </ul>
-        <p>This split allows a CPU to simultaneously fetch instructions and access data, further optimizing performance. In our simulator, we focus on a unified L1 cache model to keep the concepts simple and clear. However, understanding the split nature of L1 in real-world processors can give you deeper insights into how modern systems maximize efficiency.</p>
-        
-        <h4>Taking It Further: More Levels of Cache (More the Merrier! Somewhat)</h4>
-        <p>While our simulator focuses on L1 and L2 caches for simplicity, real-world systems often include additional layers. For example:</p>
-        <ul>
-          <li><strong>L3 Cache:</strong> Typically larger and shared among multiple cores, the L3 cache serves as a common pool of data that all cores can access. Yes, that makes it slower than L1 and L2 but still much faster than main memory. Think of it as a community pantry (if that's a thing) in a shared apartment everyone can use, though it's not as immediately accessible as your personal pantry.</li>
-          <li><strong>L4 Cache and Beyond:</strong> Some architectures even include an L4 cache or specialized caches, often used for specific purposes such as graphics processing or as a buffer between the CPU and slower system memory. These are even larger and act as the final fast-access stage before reaching the main memory.</li>
-        </ul>
-        
-        <h4>#2 Simulating a Multi-Core World</h4>
-        <p>Now, let's ramp things up a notch and really tighten our sails. Modern processors aren't just one kitchen; they're more like a bustling restaurant with several chefs (or cores) all working in parallel. Each core has its own L1 cache (its own countertop), yet they share a common L2 cache (a shared mini-fridge).</p>
-        <p>In our <code>multi_core_simulation.cpp</code> file, each core does its own thing:</p>
-        <ul>
-          <li><strong>Writing Data:</strong> Every core writes data into its own L1 cache. Imagine each chef plating their dish.</li>
-          <li><strong>Flushing and Updating:</strong> Occasionally, a chef will "flush" data (or clean up the station—nobody likes a mess 😀) and update the shared L2 cache, ensuring the entire kitchen stays synchronized.</li>
-          <li><strong>Persistent Counter:</strong> One of the quirky bits is our persistent counter, a mechanism that not only increments but also "persists" the count to simulate durability—much like noting down orders on a notepad that won't get lost even if the kitchen goes chaotic.</li>
-        </ul>
-        <p>This design lets us experiment with multi-threaded behavior and see how caches interact under concurrent operations.</p>
-        
-        <h4>#3 Bringing Persistence into the Mix</h4>
-        <p>Persistence, in simpler terms, means endurance or the ability to hold on and continue. Just like Hercules conquered the 12 labours, let us conquer the system's volatility. Persistence isn't just for memories and photo albums—it's crucial for systems that need to remember their state even after a crash or reboot.</p>
-        <p>Our <code>persistent_data_structure.cpp</code> introduces a "PersistentCounter". In everyday terms, imagine a counter on your doorstep that not only counts the visitors but also writes down the total so it can be recovered later if the power goes out.</p>
-        <p>Here's how it works:</p>
-        <ul>
-          <li><strong>Incrementing:</strong> Each time the counter increments, the new value is written into the cache.</li>
-          <li><strong>Persisting:</strong> A flush operation then simulates writing the value to a more permanent storage area.</li>
-        </ul>
-        <p>If you go through the code you will see it uses a mutex to ensure that even if multiple "chefs" (or threads 😉) try to update the counter, everything stays in order.</p>
-        
-        <h4>#4 Real-Life Benchmarks and Simulations</h4>
-        <p>Okay, so we discussed a lot about these chefs and what they can do, but it might be hearsay, right? Maybe it's just like when Dionysus boasted about an epic feast, yet all he served was an empty wine barrel! To truly understand performance—and avoid embarrassing ourselves like Dionysus—one must measure it.</p>
-        <p>Our project includes various benchmark modes (see <code>benchmark.cpp</code> and <code>extended_benchmark.cpp</code>) that simulate:</p>
-        <ul>
-          <li><strong>Parallel Flushes:</strong> Several chefs simultaneously cleaning their stations.</li>
-          <li><strong>Redundant Flushes:</strong> Double-checking your recipes—ensuring you don't repeat work unnecessarily.</li>
-          <li><strong>Random Evictions:</strong> Occasionally, items get removed from the cache (or your countertop) unexpectedly—perhaps like a sudden gust of wind that knocks a spice container off the counter!</li>
-        </ul>
-        
-        <h4>#5 Wrapping Up: Why It Matters</h4>
-        <p>You might be wondering: why go through all this trouble to simulate caches and persistence? We're not Jack Sparrow—we're not setting sail for the world's end. Our aim is to show how modern software systems rely on these techniques to boost performance while ensuring data is never lost.</p>
-        <p>By experimenting with our simulator, you can:</p>
-        <ul>
-          <li><strong>Visualize Complex Concepts:</strong> Break down the intricacies of caching, multi-threading, and persistence into manageable, bite-sized pieces.</li>
-          <li><strong>Optimize Real-World Systems:</strong> Gain insights into how to fine-tune systems for better performance—a crucial skill for developers and engineers.</li>
-          <li><strong>Have Fun with Code:</strong> And let's be honest, playing around with such simulations is just plain fun!</li>
-        </ul>
-        <p>This concludes the first part of our exploration. In upcoming sections, we'll dive deeper into the code, explore each component in greater detail, and even run some of the simulations ourselves. Stay tuned for more playful insights into the fascinating world of caches and multi-core processing! Also here is the link for the Project: <a href="https://github.com/shreeshjha/SkipCache" target="_blank">SkipCache</a></p>
-        <p>Happy coding, and may your caches always be hit! 😉</p>
-        <p><em>PS:</em> I like Greek mythology and cooking, so most of the examples I include here or in later sections will be related to cooking or mythological characters. That doesn't mean I'm a good cook or an expert in ancient history. 😜</p>
+        <section id="intro">
+          <p>Hello my fellow tinkerers or should I say Hermes followers 😉 Today we'll set our sails into the deep trenches of computer caches, multi-core simulations, and persistent data structures. If you've ever thought about how modern systems juggle speed and data reliability, then you came at the right post. And don't worry—we'll start with the basics, much like learning to ride a bike (with training wheels, of course). And while none of us are Indiana Jones on a quest for hidden relics (or are we 🤨?), we're about to embark on our own little adventure, where we will bridge the gap between theoretical concepts and practical insights in a way that's as thrilling (hopefully) as it is enlightening.</p>
+        </section>
+
+        <section id="cache">
+          <h4>#1 The Big Picture: What's a Cache Anyway?</h4>
+          <p>Imagine you are in your kitchen preparing dinner. You wouldn't keep all your ingredients stored in a far-off storage or pantry (if you are fancy) every time you need a spice, right? So where would you keep it? Think 🤔—you know the answer.</p>
+          <!-- Reveal button -->
+          <button id="reveal-spell" class="reveal-button"><span class="wand">⚡</span> Revelio!</button>
+          <!-- Hidden content section -->
+          <div id="hidden-content" class="hidden-content">
+            <p>Yes, you'd keep the most-used items right on the kitchen countertop. In computer architecture, a cache works much the same way; it's a small, fast storage space that keeps data close at hand for the processor (just like a small spice box you'd keep in front of you in the kitchen).</p>
+            <p>In our project (which will be linked down below), we've built a cache simulator that mimics this behavior. We have different "levels" of caches:</p>
+            <ul>
+              <li><strong>L1 Cache:</strong> Imagine it as the countertop, the fastest and closest to the "action".</li>
+              <li><strong>L2 Cache:</strong> This is more like a nearby kitchen cabinet. It is not as immediate as the countertop, but it is much faster than going to your deep, far away cold pantry (they are cold, right? I don't know but you understand my point!).</li>
+            </ul>
+            <p>By simulating both L1 and L2 caches, we can explore how data flows through different levels and what happens when it's time to "flush" or update this data.</p>
+            <p><strong>Eviction</strong> is like a chef cleaning up: when your countertop (L1) is full, you must move or discard some spices to make room for new ones.</p>
+            <p><strong>Flushing</strong> is like restocking your cabinet (L2) with fresh supplies at the end of service.</p>
+            <img src="../assets/images/cache-hierarchy-diagram.png" alt="Diagram of cache hierarchy showing CPU, L1, L2, main memory" class="blog-image">
+            <p><em>Pro tip (thanks to Stefan):</em> Main memory itself can also act as another cache layer for the OS's VM or file system—think of it as the pantry beyond your cabinets. When your cabinets run dry or miss an item, the system will grab from this faster, in-house pantry (RAM) instead of waiting for slower disk accesses.</p>
+            <img src="../assets/images/main-memory-cache-layer.png" alt="Diagram showing main memory as cache layer for OS VM and file system" class="blog-image">
+          </div>
+        </section>
+
+        <section id="split-l1">
+          <h4>##2 Beyond the Basics: Splitting the L1 Cache</h4>
+          <p>In many high performance processors, the L1 cache isn't a single, monolithic block. Instead, it's often split into two distinct parts:</p>
+          <ul>
+            <li><strong>L1 Instruction Cache (L1i):</strong> Stores the instructions the CPU needs to execute, ensuring that the processor can quickly fetch and execute commands.</li>
+            <li><strong>L1 Data Cache (L1d):</strong> Holds the actual data that the processor operates on, keeping frequently used data readily accessible.</li>
+          </ul>
+          <p>This split allows a CPU to simultaneously fetch instructions and access data, further optimizing performance. In our simulator, we focus on a unified L1 cache model to keep the concepts simple and clear. However, understanding the split nature of L1 in real-world processors can give you deeper insights into how modern systems maximize efficiency.</p>
+        </section>
+
+        <section id="more-levels">
+          <h4>##3 Taking It Further: More Levels of Cache (More the Merrier! Somewhat)</h4>
+          <p>While our simulator focuses on L1 and L2 caches for simplicity, real-world systems often include additional layers. For example:</p>
+          <ul>
+            <li><strong>L3 Cache:</strong> Typically larger and shared among multiple cores, the L3 cache serves as a common pool of data that all cores can access. Yes, that makes it slower than L1 and L2 but still much faster than main memory. Think of it as a community pantry (if that's a thing) in a shared apartment everyone can use, though it's not as immediately accessible as your personal pantry.</li>
+            <li><strong>L4 Cache and Beyond:</strong> Some architectures even include an L4 cache or specialized caches, often used for specific purposes such as graphics processing or as a buffer between the CPU and slower system memory. These are even larger and act as the final fast-access stage before reaching the main memory.</li>
+          </ul>
+        </section>
+
+        <section id="multi-core">
+          <h4>#2 Simulating a Multi-Core World</h4>
+          <p>Now, let's ramp things up a notch and really tighten our sails. Modern processors aren't just one kitchen; they're more like a bustling restaurant with several chefs (or cores) all working in parallel. Each core has its own L1 cache (its own countertop), yet they share a common L2 cache (a shared mini-fridge).</p>
+          <p>In our <code>multi_core_simulation.cpp</code> file, each core does its own thing:</p>
+          <ul>
+            <li><strong>Writing Data:</strong> Every core writes data into its own L1 cache. Imagine each chef plating their dish.</li>
+            <li><strong>Flushing and Updating:</strong> Occasionally, a chef will "flush" data (or clean up the station—nobody likes a mess 😀) and update the shared L2 cache, ensuring the entire kitchen stays synchronized.</li>
+            <li><strong>Persistent Counter:</strong> One of the quirky bits is our persistent counter, a mechanism that not only increments but also "persists" the count to simulate durability—much like noting down orders on a notepad that won't get lost even if the kitchen goes chaotic.</li>
+          </ul>
+          <p>This design lets us experiment with multi-threaded behavior and see how caches interact under concurrent operations.</p>
+        </section>
+
+        <section id="persistence">
+          <h4>#3 Bringing Persistence into the Mix</h4>
+          <p>Persistence, in simpler terms, means endurance or the ability to hold on and continue. Just like Hercules conquered the 12 labours, let us conquer the system's volatility. Persistence isn't just for memories and photo albums—it's crucial for systems that need to remember their state even after a crash or reboot.</p>
+          <p>Our <code>persistent_data_structure.cpp</code> introduces a "PersistentCounter". In everyday terms, imagine a counter on your doorstep that not only counts the visitors but also writes down the total so it can be recovered later if the power goes out.</p>
+          <p>Here's how it works:</p>
+          <ul>
+            <li><strong>Incrementing:</strong> Each time the counter increments, the new value is written into the cache.</li>
+            <li><strong>Persisting:</strong> A flush operation then simulates writing the value to a more permanent storage area.</li>
+          </ul>
+          <p>If you go through the code you will see it uses a mutex to ensure that even if multiple "chefs" (or threads 😉) try to update the counter, everything stays in order.</p>
+        </section>
+
+        <section id="benchmarks">
+          <h4>#4 Real-Life Benchmarks and Simulations</h4>
+          <p>Okay, so we discussed a lot about these chefs and what they can do, but it might be hearsay, right? Maybe it's just like when Dionysus boasted about an epic feast, yet all he served was an empty wine barrel! To truly understand performance—and avoid embarrassing ourselves like Dionysus—one must measure it.</p>
+          <p>Our project includes various benchmark modes (see <code>benchmark.cpp</code> and <code>extended_benchmark.cpp</code>) that simulate:</p>
+          <ul>
+            <li><strong>Parallel Flushes:</strong> Several chefs simultaneously cleaning their stations.</li>
+            <li><strong>Redundant Flushes:</strong> Double-checking your recipes—ensuring you don't repeat work unnecessarily.</li>
+            <li><strong>Random Evictions:</strong> Occasionally, items get removed from the cache (or your countertop) unexpectedly—perhaps like a sudden gust of wind that knocks a spice container off the counter!</li>
+          </ul>
+        </section>
+
+        <section id="wrapup">
+          <h4>#5 Wrapping Up: Why It Matters</h4>
+          <p>You might be wondering: why go through all this trouble to simulate caches and persistence? We're not Jack Sparrow—we're not setting sail for the world's end. Our aim is to show how modern software systems rely on these techniques to boost performance while ensuring data is never lost.</p>
+          <p>By experimenting with our simulator, you can:</p>
+          <ul>
+            <li><strong>Visualize Complex Concepts:</strong> Break down the intricacies of caching, multi-threading, and persistence into manageable, bite-sized pieces.</li>
+            <li><strong>Optimize Real-World Systems:</strong> Gain insights into how to fine-tune systems for better performance—a crucial skill for developers and engineers.</li>
+            <li><strong>Have Fun with Code:</strong> And let's be honest, playing around with such simulations is just plain fun!</li>
+          </ul>
+          <p>This concludes the first part of our exploration. In upcoming sections, we'll dive deeper into the code, explore each component in greater detail, and even run some of the simulations ourselves. Stay tuned for more playful insights into the fascinating world of caches and multi-core processing! Also here is the link for the Project: <a href="https://github.com/shreeshjha/SkipCache" target="_blank">SkipCache</a></p>
+          <p>Happy coding, and may your caches always be hit! 😉</p>
+          <p><em>PS:</em> I like Greek mythology and cooking, so most of the examples I include here or in later sections will be related to cooking or mythological characters. That doesn't mean I'm a good cook or an expert in ancient history. 😜</p>
+        </section>
       </div>
+
+      <!-- Social Share Buttons -->
+      <div class="share-section">
+        <p>Enjoyed this post? Share it:</p>
+        <a href="#" class="share-btn twitter">Twitter</a>
+        <a href="#" class="share-btn linkedin">LinkedIn</a>
+        <a href="#" class="share-btn reddit">Reddit</a>
+      </div>
+
+      <!-- Newsletter Signup -->
+      <div class="newsletter-signup">
+        <h3>Stay Updated</h3>
+        <p>Get the latest posts straight to your inbox.</p>
+        <form action="#" method="post">
+          <input type="email" placeholder="Your email" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+
+      <!-- Comment Section -->
+      <section class="comments">
+        <h3>Leave a Comment</h3>
+        <div id="disqus_thread"></div>
+        <script>
+          var disqus_config = function () {
+            this.page.url = window.location.href;
+            this.page.identifier = document.title;
+          };
+          (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://YOUR_DISQUS_SHORTNAME.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+          })();
+        </script>
+        <noscript>Please enable JavaScript to view the comments.</noscript>
+      </section>
+
     </article>
   </main>
 
@@ -138,56 +215,26 @@
     });
   </script>
 
-  <!-- Script for Content Reveal -->
+  <!-- Script for Content Reveal & Search -->
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const revealButton = document.getElementById("reveal-spell");
       const hiddenContent = document.getElementById("hidden-content");
-      
-      if (!revealButton || !hiddenContent) return;
-      
-      revealButton.addEventListener("click", function() {
-        // Toggle the revealed class
-        hiddenContent.classList.toggle("revealed");
-        
-        // Toggle active class on button
-        revealButton.classList.toggle("active");
-        
-        // Change button text based on state
-        if (hiddenContent.classList.contains("revealed")) {
-          revealButton.innerHTML = '<span class="wand">⚡</span> Colloportus!'; // Locking spell
-          
-          // Create magic sparkle effects
-          createSparkles();
-        } else {
-          revealButton.innerHTML = '<span class="wand">⚡</span> Revelio!';
-        }
-      });
-      
-      // Function to create sparkle effects
-      function createSparkles() {
-        const container = hiddenContent.parentElement;
-        
-        for (let i = 0; i < 15; i++) {
-          setTimeout(() => {
-            const sparkle = document.createElement("div");
-            sparkle.classList.add("sparkle");
-            
-            // Random position around hidden content
-            const top = hiddenContent.offsetTop + Math.random() * hiddenContent.offsetHeight;
-            const left = hiddenContent.offsetLeft + Math.random() * hiddenContent.offsetWidth;
-            
-            sparkle.style.top = `${top}px`;
-            sparkle.style.left = `${left}px`;
-            
-            container.appendChild(sparkle);
-            
-            // Remove sparkle after animation completes
-            setTimeout(() => {
-              sparkle.remove();
-            }, 800);
-          }, i * 50);
-        }
+      if (revealButton && hiddenContent) {
+        revealButton.addEventListener("click", function() {
+          hiddenContent.classList.toggle("revealed");
+          revealButton.innerHTML = hiddenContent.classList.contains("revealed") ? '<span class="wand">⚡</span> Colloportus!' : '<span class="wand">⚡</span> Revelio!';
+        });
+      }
+      // Simple search filter
+      const searchInput = document.getElementById("post-search");
+      if (searchInput) {
+        searchInput.addEventListener("input", function(e) {
+          const q = e.target.value.toLowerCase();
+          document.querySelectorAll('#post-content p, #post-content h4, #post-content ul').forEach(el => {
+            el.style.display = el.innerText.toLowerCase().includes(q) ? '' : 'none';
+          });
+        });
       }
     });
   </script>
